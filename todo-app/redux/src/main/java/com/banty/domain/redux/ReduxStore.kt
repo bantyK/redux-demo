@@ -2,14 +2,16 @@ package com.banty.domain.redux
 
 import com.banty.domain.model.TodoRepository
 import com.banty.domain.redux.reducers.AddTodoReducer
+import com.banty.domain.redux.reducers.CheckAllReducers
 import com.banty.domain.redux.reducers.DeleteTodoReducer
 import com.banty.domain.redux.reducers.GenerateDataReducer
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 
-class Redux(private val todoRepository: TodoRepository) {
+class ReduxStore(private val todoRepository: TodoRepository) {
 
     private val actionDispatcher = PublishSubject.create<TodoAction>()
+
     private var currentState: TodoState = TodoState()
 
     fun actionDispatcher(): Observable<TodoState> {
@@ -18,6 +20,7 @@ class Redux(private val todoRepository: TodoRepository) {
                 is TodoAction.AddTodo -> AddTodoReducer(action)
                 is TodoAction.DeleteTodo -> DeleteTodoReducer(action)
                 is TodoAction.GenerateData -> GenerateDataReducer(todoRepository)
+                is TodoAction.CheckAll -> CheckAllReducers(action)
             }
 
             reducer.newState(currentState.clone())

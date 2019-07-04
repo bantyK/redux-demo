@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), MainView {
         presenter.initialise()
 
         checkboxAll.setOnClickListener {
-            Log.d("Todo#", "Check box all clicked")
+            presenter.checkAll(checkboxAll.isChecked)
         }
     }
 

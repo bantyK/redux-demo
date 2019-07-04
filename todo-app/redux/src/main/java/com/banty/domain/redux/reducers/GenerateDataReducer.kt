@@ -5,6 +5,7 @@ import com.banty.domain.redux.TodoReducer
 import com.banty.domain.redux.TodoState
 
 class GenerateDataReducer(private val todoRepository: TodoRepository) : TodoReducer {
+
     override fun newState(currentState: TodoState): TodoState {
         val todos = currentState.todos.toMutableList()
             .apply { addAll(todoRepository.generateFakeData()) }

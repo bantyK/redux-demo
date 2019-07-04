@@ -1,17 +1,17 @@
 package com.banty.reduxdemo3
 
 import com.banty.domain.model.Todo
-import com.banty.domain.redux.Redux
+import com.banty.domain.redux.ReduxStore
 import com.banty.domain.redux.TodoAction
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
 class MainPresenter(val view: MainView) : KoinComponent {
 
-    private val redux: Redux by inject()
+    private val store: ReduxStore by inject()
 
     fun initialise() {
-        view.bind(redux.actionDispatcher()
+        view.bind(store.actionDispatcher()
             .subscribe { state ->
                 view.updateTodo(state.todos)
             })
@@ -19,14 +19,18 @@ class MainPresenter(val view: MainView) : KoinComponent {
     }
 
     fun addTodo(text: String) {
-        redux.dispatcher(TodoAction.AddTodo(Todo(text)))
+        store.dispatcher(TodoAction.AddTodo(Todo(text)))
     }
 
     fun deleteTodo(id: String) {
-        redux.dispatcher(TodoAction.DeleteTodo(id))
+        store.dispatcher(TodoAction.DeleteTodo(id))
     }
 
     fun generateData() {
-        redux.dispatcher(TodoAction.GenerateData)
+        store.dispatcher(TodoAction.GenerateData)
+    }
+
+    fun checkAll(isChecked:Boolean) {
+        store.dispatcher(TodoAction.CheckAll(isChecked))
     }
 }

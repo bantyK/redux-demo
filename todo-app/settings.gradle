@@ -1,2 +1,2 @@
-include ':app', ':domain'
+include ':app', ':redux'
 rootProject.name='ReduxDemo3'

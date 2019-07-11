@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.groupon.grox:grox-core:1.1.2@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.groupon.grox/grox-core/1.1.2/5c99ab392cfa56968815f6646592d19a8ae0dd49/grox-core-1.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.groupon.grox/grox-core/1.1.2/73ce39bf2d2b8ffc7208853d5bd87d2577de808d/grox-core-1.1.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.groupon.grox/grox-core/1.1.2/4a3f7bc228fe35cc4483c47c42657e10a50f07a8/grox-core-1.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
